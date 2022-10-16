@@ -61,4 +61,9 @@ async def on_message(message):
             embed = discord.Embed(title="[ 청소 ]", description=f"{message.author.mention}님은 서버의 관리자가 아닙니다!", color=0x00ff00)
             await message.channel.send(embed=embed)
 
+    if message.content.startswith('!채널'):
+        channel = message.guild.get_channel(message.content[4:])
+        embed = discord.Embed(title="[ 채널 ]", description="채널에 출력할 메세지입니다.", color=0x00ff00)
+        await channel.send(embed=embed)
+
 client.run("봇의 토큰값")
