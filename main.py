@@ -66,4 +66,10 @@ async def on_message(message):
         embed = discord.Embed(title="[ 채널 ]", description="채널에 출력할 메세지입니다.", color=0x00ff00)
         await channel.send(embed=embed)
 
+    if message.content.startswith("!역할"):
+        role = discord.utils.get(message.guild.roles, name="역할")
+        await message.author.add_roles(role)
+        embed = discord.Embed(title="[ 역할 ]", description="역할을 성공적으로 부여했습니다.", color=0x00ff00)
+        await message.channel.send(embed=embed)
+
 client.run("봇의 토큰값")
